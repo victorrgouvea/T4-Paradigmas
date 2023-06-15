@@ -1,3 +1,6 @@
+% Link do problema: https://rachacuca.com.br/logica/problemas/funcionarios-do-banco/#gsc.tab=0
+
+% Fatos do problema
 camisa(amarela).
 camisa(azul).
 camisa(branca).
@@ -52,8 +55,10 @@ noCanto(X,[X|_]).
 todosDiferentes([]).
 todosDiferentes([H|T]) :- not(member(H,T)), todosDiferentes(T).
 
+% Função principal que resolve o problema
 solucao(ListaFunc) :-
 
+    % Lista que representa os funcionários e seus atributos
     ListaFunc = [
         funcionario(Camisa1, Nome1, Cargo1, Ferias1, Lanche1, Suco1),
         funcionario(Camisa2, Nome2, Cargo2, Ferias2, Lanche2, Suco2),
@@ -114,7 +119,7 @@ solucao(ListaFunc) :-
     % Quem está bebendo suco de Uva está em algum lugar entre quem está comendo um Sanduíche 
     % e quem está bebendo suco de Limão, nessa ordem.
     aDireita(funcionario(_, _, _, _, _, uva), funcionario(_, _, _, _, sanduiche, _), ListaFunc),
-    aEsquerda(funcionario(_, _, _, _, _, uva), funcionario(_, _, _, _, _, limao),ListaFunc),
+    aEsquerda(funcionario(_, _, _, _, _, uva), funcionario(_, _, _, _, _, limao), ListaFunc),
 
     % O homem que normalmente tira férias em Setembro está em algum lugar entre 
     % o Geraldo e o homem que está comendo uma Maçã, nessa ordem.
